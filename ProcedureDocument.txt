@@ -1,0 +1,294 @@
+
+BANK ACCOUNT ROLE & OWNERSHIP CHANGE PROCEDURE
+Test Data Procedural Document (Human-Oriented)
+Document Code: BANK-ACCT-ROLES-OWNERSHIP-PROC-2026-02
+Version: 1.0
+Effective Date: 2026-02-26
+Owner Function: Retail & Business Banking Operations
+Applies To: Personal, Savings, Corporate accounts
+
+0.0 DOCUMENT CONTROL
+0.1. This document is provided as test data and illustrates typical bank operational controls.
+0.2. Where local law or policy conflicts with this document, the stricter control applies.
+0.3. All staff must follow the bank’s internal AML/KYC, sanctions, fraud, and data protection policies when executing any step described herein.
+
+1.0 PURPOSE, SCOPE, AND PRINCIPLES
+1.1. Purpose: Define standardized requirements and step-by-step procedures for changing account ownership and/or role assignments on bank accounts.
+1.2. Scope: This procedure applies to (a) changing the Owner, (b) adding/removing Admins, and (c) adding/removing Named users, for Personal, Savings, and Corporate accounts.
+1.3. Out of Scope: Changes to account product type, interest rate, pricing, or overdraft terms are not governed by this document.
+1.4. Principle of Least Privilege: Access provided to any role must be the minimum required for the stated need.
+1.5. Segregation of Duties: No single staff member may both (a) approve identity verification exceptions and (b) finalize the role/ownership change in core banking systems.
+1.6. Non-Repudiation: All approvals must be captured in a durable audit trail linked to the customer, account, request, and staff user IDs.
+1.7. Customer Safety: Where suspected coercion, fraud, or financial abuse exists, changes must be paused and escalated per fraud/abuse procedures.
+
+2.0 DEFINITIONS AND ROLE MODEL
+2.1. Account: A deposit account maintained by the bank, including Personal, Savings, and Corporate accounts.
+2.2. Ownership (Owner Role): The legal authority over the account. “Owner” means the person/entity with ultimate authority to control the account, subject to law and bank policy.
+2.3. Admin Role: A delegated authority role intended for operational management without conferring ultimate legal ownership.
+2.4. Named Role: A constrained role used for limited access (view, statements, or restricted transaction permissions if permitted).
+2.5. Primary Authorized Signatory (Corporate): The individual acting on behalf of the corporate Owner entity under the account mandate.
+2.6. Mandate (Corporate): The bank-held instruction set defining who can operate the corporate account and with what approval rules.
+2.7. Beneficial Owner (Corporate): A natural person who ultimately owns/controls the corporate entity as defined by the bank’s AML program.
+2.8. Request: A documented instruction to add, remove, or modify a role or ownership status.
+2.9. Verification: The bank’s process of confirming identity, authority, and legitimacy of the request.
+
+3.0 ACCOUNT TYPES COVERED
+3.1. Personal Account: Held by one or more individuals for personal use.
+3.2. Savings Account: An interest-bearing account with heightened protective controls due to long-term asset purpose and typical withdrawal restrictions.
+3.3. Corporate Account: Held by a registered business entity; operation is governed by mandate, signatories, corporate authority documents, and beneficial ownership controls.
+
+4.0 AUTHORITY AND PERMISSION MODEL (ROLE CAPABILITIES)
+4.1. Owner Permissions (all account types):
+4.1.1. May authorize addition/removal of Admins and Named users (subject to account type rules).
+4.1.2. May change account operating instructions (e.g., signing rules) where applicable.
+4.1.3. May authorize account closure (subject to holds, liens, legal blocks, and debt recovery).
+4.1.4. May request ownership change only where ownership change is legally and product-policy permitted.
+4.2. Admin Permissions (default model; may be reduced by configuration):
+4.2.1. May initiate/authorize routine transactions within assigned limits.
+4.2.2. May add/remove Named users only if explicitly granted in the account configuration and permitted for the account type.
+4.2.3. Must not be permitted to change Owner or corporate mandate by default.
+4.2.4. Must not be permitted to remove the Owner or lock the Owner out of access.
+4.3. Named Permissions (default model; may be reduced further):
+4.3.1. May access statements and account information only to the extent configured.
+4.3.2. May be granted limited transactional permissions only where allowed by account type and where limits are explicitly set.
+4.3.3. Must not be permitted to add/remove users, modify roles, or change account controls.
+4.4. Staff Permissions (internal):
+4.4.1. Frontline staff may accept requests and capture documents.
+4.4.2. Operations staff may execute changes in systems following verification and approvals.
+4.4.3. Compliance staff may block or delay changes where AML/KYC, sanctions, or suspicious activity concerns arise.
+
+5.0 GLOBAL REQUIREMENTS FOR ANY ROLE OR OWNERSHIP CHANGE
+5.1. Verified Request Source: The request must come from a party with authority to instruct the bank (see Section 6.0 and account-type rules).
+5.2. Identity Verification (KYC): Any person being added or elevated (e.g., Named → Admin, Admin → Owner) must pass identity verification prior to activation.
+5.3. Authority Verification: The bank must confirm the requester has authority for the requested change (e.g., Owner consent, PoA, executor, corporate resolution).
+5.4. Sanctions/Watchlist Screening: All newly added individuals and relevant corporate parties must be screened per bank policy.
+5.5. Fraud and Coercion Checks: Staff must assess red flags including unusual urgency, inconsistent instructions, third-party pressure, or abrupt changes in control.
+5.6. Cooling-Off (where configured): For high-risk changes (e.g., Owner change, new Admin with transaction powers), the bank may apply a cooling-off period before enabling outbound payments.
+5.7. Account Blocks and Holds: Changes must not be executed if the account is under legal hold, court order, freeze, bankruptcy/insolvency block, or internal investigation, unless authorized by Legal/Compliance.
+5.8. Multi-Channel Consistency: Requests received digitally must be re-validated for strong customer authentication; requests received in person must include document and signature controls.
+5.9. Record Retention: All documents, verification results, and approvals must be retained per the bank’s retention schedule (minimum 7 years unless longer is required).
+5.10. Audit Trail Fields: Each change record must capture account number, change type, old roles, new roles, effective date/time, authorizing party, channel, staff ID(s), and reason code.
+5.11. Notification: The bank must notify impacted parties per policy (e.g., current Owner, added Admin), except where notification is restricted by legal/compliance instruction.
+
+6.0 WHO MAY REQUEST CHANGES (REQUESTER ELIGIBILITY)
+6.1. Owner-Initiated Requests: The current Owner may request any permitted role change, subject to verification.
+6.2. Admin-Initiated Requests: An Admin may request only changes explicitly permitted to Admins (typically add/remove Named users), subject to configured authority.
+6.3. Named-Initiated Requests: A Named user may not request ownership or role changes.
+6.4. Legal Representative Requests: A verified attorney-in-fact, guardian, executor, or court-appointed representative may request changes within the scope of their authority documents.
+6.5. Corporate Authority Requests: For Corporate accounts, only individuals authorized under the mandate and corporate authority documents may request changes.
+6.6. Staff-Initiated Changes: Staff must not initiate role changes except to correct operational errors, and only with documented supervisory approval.
+6.7. Third-Party Requests: Requests from unrelated third parties must be rejected unless accompanied by verified legal authority.
+
+7.0 CHANGE TYPES AND PROCESS OVERVIEW
+7.1. Change Type A: Add Role (add Owner where permitted, add Admin, add Named).
+7.2. Change Type B: Remove Role (remove Admin, remove Named, remove Owner where permitted and only under defined scenarios).
+7.3. Change Type C: Modify Role (change limits, change access scope, elevate or downgrade role).
+7.4. Change Type D: Transfer Ownership (rare; only permitted for defined circumstances).
+7.5. Standard Processing Stages:
+7.5.1. Intake and triage.
+7.5.2. Document collection.
+7.5.3. Identity verification.
+7.5.4. Authority verification.
+7.5.5. Risk checks (AML/sanctions/fraud).
+7.5.6. Approvals.
+7.5.7. System execution.
+7.5.8. Confirmation and notification.
+7.5.9. Post-change monitoring and case closure.
+
+8.0 INTAKE AND TRIAGE PROCEDURE (ALL ACCOUNT TYPES)
+8.1. Create a Case: Log the request in the case management system with a unique reference ID.
+8.2. Identify Account Type: Determine whether the account is Personal, Savings, or Corporate.
+8.3. Identify Change Type: Classify as A/B/C/D (Section 7.0) and capture requested effective date.
+8.4. Identify Parties: Record requester, affected account holders/users, and any representative/agent.
+8.5. Initial Eligibility Check:
+8.5.1. Confirm requester eligibility per Section 6.0.
+8.5.2. Confirm the change is permitted for the account type (Sections 10.0–12.0).
+8.6. Immediate Red Flags:
+8.6.1. If suspected coercion, fraud, or abuse is present, pause processing and escalate.
+8.6.2. If a legal hold or freeze exists, route to Legal/Compliance.
+8.7. Provide Requirements Checklist: Provide the requester with the precise documentation requirements for the specific change.
+
+9.0 VERIFICATION REQUIREMENTS (IDENTITY + AUTHORITY)
+9.1. Identity Verification Methods:
+9.1.1. In-person verification using government-issued photo ID and liveness checks (where used).
+9.1.2. Remote verification using bank-approved digital identity tools and strong customer authentication.
+9.1.3. Enhanced verification for high-risk cases (e.g., large balances, new high-privilege Admins, unusual jurisdictions).
+9.2. Signature Verification:
+9.2.1. Where wet signatures are used, compare to specimen signature on file.
+9.2.2. Where e-signatures are used, ensure audit evidence of authentication and consent is retained.
+9.3. Authority Documents (examples; exact list governed by policy):
+9.3.1. Power of Attorney / attorney-in-fact documents.
+9.3.2. Court orders, guardianship orders.
+9.3.3. Probate documents and executor appointment.
+9.3.4. Corporate resolutions, certificate of incumbency, registry extracts.
+9.4. Validation of Authority Documents:
+9.4.1. Confirm documents are current, unrevoked, and applicable to the account and requested action.
+9.4.2. Confirm the scope explicitly includes authority to manage bank accounts and assign/remove access.
+9.4.3. If scope is ambiguous, refer to Legal for interpretation before proceeding.
+9.5. Beneficial Ownership (Corporate):
+9.5.1. If the change impacts control or signatory authority, refresh beneficial ownership information per AML policy.
+9.5.2. If beneficial ownership cannot be confirmed, do not enable high-privilege access.
+
+10.0 PERSONAL ACCOUNT RULES (ROLE AND OWNERSHIP CHANGES)
+10.1. Personal Ownership Change Restriction: Ownership transfer between living individuals is generally not permitted; instead, open a new account and transfer funds, unless a defined legal exception applies.
+10.2. Permitted Ownership Change Scenarios (Personal):
+10.2.1. Death of Owner: Transfer control to executor/administrator of estate upon verified probate authority.
+10.2.2. Court Order: Implement ownership/control changes only as specified by a valid court order.
+10.2.3. Legal Incapacity: Implement control changes only to a verified legal representative (e.g., attorney-in-fact/guardian) within document scope.
+10.3. Adding an Admin (Personal):
+10.3.1. Requires request by the Owner or verified legal representative.
+10.3.2. Admin must pass identity verification and screening.
+10.3.3. Admin permissions must be explicitly configured (e.g., payments enabled/disabled, limits).
+10.4. Removing an Admin (Personal):
+10.4.1. May be requested by Owner at any time.
+10.4.2. Must be executed immediately if the Owner reports misuse or suspected compromise.
+10.5. Adding a Named User (Personal):
+10.5.1. May be requested by Owner (or Admin if explicitly permitted).
+10.5.2. Named access must be limited to defined needs; view-only is preferred.
+10.6. Removing a Named User (Personal):
+10.6.1. May be requested by Owner or Admin (if permitted).
+10.6.2. Must be executed immediately if access is no longer required.
+10.7. Joint/Multiple Owners (if product supports it):
+10.7.1. If multiple Owners exist, the account mandate defines whether one Owner can add/remove Admins/Named users or whether all Owners must consent.
+10.7.2. If consent of all Owners is required, staff must obtain and verify consent from each Owner prior to execution.
+10.8. Disputes Between Owners (Personal):
+10.8.1. If conflicting instructions are received from Owners, freeze role changes and escalate to Legal/Compliance.
+10.8.2. Where appropriate, restrict outbound transfers until resolution.
+
+11.0 SAVINGS ACCOUNT RULES (ROLE AND OWNERSHIP CHANGES)
+11.1. Savings Ownership Controls: Ownership transfer is restricted and generally follows the same rule as Personal accounts, with heightened scrutiny due to asset-protection purpose.
+11.2. Named Access on Savings Accounts:
+11.2.1. Default Named permission is view-only (statements and balance).
+11.2.2. Transactional permissions for Named users are prohibited unless a specific product feature explicitly supports it and Compliance approves.
+11.3. Admin Access on Savings Accounts:
+11.3.1. Admin roles are discouraged and must be justified (e.g., caregiver support with verified authority).
+11.3.2. If Admin is granted, payments and withdrawals must be limited and may be subject to enhanced monitoring.
+11.3.3. A risk acknowledgment must be captured from the Owner prior to enabling Admin transactional access.
+11.4. Ownership Change Scenarios (Savings):
+11.4.1. Death of Owner: transfer control only with verified estate authority.
+11.4.2. Legal incapacity: grant control only to verified legal representative.
+11.4.3. Court order: implement strictly per order.
+11.5. Withdrawal Restriction Integrity:
+11.5.1. Role changes must not be used to bypass withdrawal limits or notice requirements.
+11.5.2. If the change coincides with large withdrawals or closure, apply enhanced fraud/AML review.
+
+12.0 CORPORATE ACCOUNT RULES (ROLE AND OWNERSHIP CHANGES)
+12.1. Corporate “Owner” Definition: The Owner is the corporate entity; individuals act as authorized signatories and administrators under the mandate.
+12.2. Change of Primary Authorized Signatory:
+12.2.1. Requires updated corporate authority documentation (e.g., board resolution) specifying the appointment/removal.
+12.2.2. Requires identity verification and screening of the new signatory.
+12.2.3. Requires confirmation that the signatory change is consistent with the mandate rules (e.g., dual authorization thresholds).
+12.3. Adding or Removing Admins (Corporate):
+12.3.1. Must be requested by an authorized signatory per the current mandate.
+12.3.2. Must be supported by a mandate update instruction if the Admin role affects signing powers.
+12.3.3. Must define transaction limits, payment types enabled, and any dual-control requirements.
+12.4. Adding or Removing Named Users (Corporate):
+12.4.1. May be requested by authorized signatory or Admin if explicitly permitted.
+12.4.2. Named users should not be granted approval powers for high-value payments unless dual control is in place.
+12.5. Corporate Ownership/Control Changes (Entity-Level):
+12.5.1. If the corporate entity undergoes merger, acquisition, or control change impacting beneficial ownership, the bank must refresh AML/KYC and beneficial ownership records.
+12.5.2. Where control change is material, the bank may require re-papering of the mandate and re-approval of all signatories.
+12.6. Corporate Insolvency and Administration:
+12.6.1. Upon notification of insolvency, administration, or liquidation, suspend Admin and Named access unless the appointed administrator/liquidator authorizes otherwise.
+12.6.2. Accept instructions only from verified insolvency practitioners within the scope of appointment.
+12.7. Conflicting Corporate Instructions:
+12.7.1. If conflicting instructions are received from directors or signatories, freeze role/mandate changes pending a clarified resolution or court order.
+
+13.0 REQUIRED DOCUMENTATION BY CHANGE TYPE
+13.1. Add Admin (Personal/Savings):
+13.1.1. Owner instruction (signed in-channel).
+13.1.2. Admin identity verification documents.
+13.1.3. Explicit permission set and limits.
+13.2. Add Named (Personal/Savings):
+13.2.1. Owner/Admin instruction (as permitted).
+13.2.2. Named identity verification proportional to access (view-only may require reduced KYC per policy; transactional access requires full verification).
+13.3. Corporate Signatory/Admin changes:
+13.3.1. Mandate update form/instruction.
+13.3.2. Board resolution or equivalent authority evidence where required.
+13.3.3. Identity verification and screening for all new individuals.
+13.3.4. Updated beneficial ownership information when control changes.
+13.4. Death of Owner (Personal/Savings):
+13.4.1. Certified death certificate (or bank-approved verification alternative).
+13.4.2. Probate/letters of administration/executor appointment.
+13.4.3. Identity verification of executor/administrator.
+13.4.4. Estate account opening documentation if funds are to be moved.
+13.5. Incapacity / Power of Attorney:
+13.5.1. Valid PoA/guardianship documents.
+13.5.2. Identity verification of attorney-in-fact/guardian.
+13.5.3. Legal review if scope is unclear or contested.
+13.6. Court Orders:
+13.6.1. Original or certified copy of order.
+13.6.2. Legal department validation prior to execution.
+
+14.0 EXECUTION CONTROLS (SYSTEM CHANGES)
+14.1. Dual Control for High-Risk Changes:
+14.1.1. Owner change, corporate mandate change, and enabling new payment privileges require maker-checker controls.
+14.1.2. The maker and checker must be different staff members.
+14.2. Effective Timing:
+14.2.1. Changes should be applied with an effective timestamp and communicated to the customer.
+14.2.2. Where cooling-off is required, set payment enablement to begin only after the cooling-off expires.
+14.3. Access Provisioning:
+14.3.1. Issue credentials only after verification completion.
+14.3.2. Ensure multi-factor authentication enrollment for Admins and Owners where available.
+14.4. Limit Configuration:
+14.4.1. Set transaction types and limits explicitly (daily limits, per-transaction limits, payee controls).
+14.4.2. For corporate accounts, enforce dual authorization thresholds as defined in the mandate.
+14.5. Removal and Revocation:
+14.5.1. Removing a role must immediately revoke digital access tokens, cards, and delegated authorities.
+14.5.2. If cards are associated with Named/Admin access, block cards immediately upon removal.
+14.6. Post-Change Review:
+14.6.1. Confirm role listing in core systems matches the request.
+14.6.2. Confirm online/mobile access reflects intended permissions.
+14.6.3. Confirm notifications were sent and recorded.
+
+15.0 RISK, COMPLIANCE, AND ESCALATION RULES
+15.1. AML/Suspicious Activity:
+15.1.1. If the change appears to facilitate unusual movement of funds, escalate to AML investigations.
+15.1.2. Do not disclose investigation status to the customer beyond approved scripts.
+15.2. Sanctions Screening Hits:
+15.2.1. If screening returns a potential match, do not enable access until cleared.
+15.2.2. Follow sanctions escalation and hold procedures.
+15.3. Fraud Indicators:
+15.3.1. If account takeover is suspected, immediately lock sensitive changes and escalate.
+15.3.2. Consider step-up verification and out-of-band confirmation to the known Owner.
+15.4. Vulnerable Customers / Financial Abuse:
+15.4.1. If staff suspect coercion or abuse, pause role changes and follow safeguarding procedures.
+15.5. Data Protection:
+15.5.1. Only share account details with individuals who have verified authority.
+15.5.2. Keep documents in approved systems with access logging.
+
+16.0 DISPUTES AND CONFLICTING INSTRUCTIONS
+16.1. Conflicting Requests: If two parties with apparent authority provide conflicting instructions, suspend changes until authority is clarified.
+16.2. Alleged Unauthorized Admin/Named Additions:
+16.2.1. Immediately suspend the disputed role’s access.
+16.2.2. Re-verify the change authorization and signature evidence.
+16.3. Claims of Forged Documents:
+16.3.1. Escalate to Fraud and Legal.
+16.3.2. Preserve all evidence and audit logs.
+16.4. Court Injunctions or Restraining Orders:
+16.4.1. Apply blocks exactly as directed and record the legal basis.
+
+17.0 SERVICE LEVEL TARGETS AND CUSTOMER COMMUNICATION
+17.1. Standard SLA: Complete role changes within 2 business days after receiving complete, verified documentation.
+17.2. High-Risk/Legal SLA: Where Legal/Compliance review is required, provide an estimated timeline and status updates per communication policy.
+17.3. Confirmation Notice Content:
+17.3.1. What changed (role/permissions).
+17.3.2. When it became effective.
+17.3.3. How to report unauthorized changes.
+
+18.0 EXAMPLES (FOR TRAINING / TEST DATA)
+18.1. Example A (Personal → Add Admin): Owner requests adding spouse as Admin with $500 daily payment limit; Admin passes ID verification; maker-checker applied; notifications sent to Owner.
+18.2. Example B (Savings → Add Named View-Only): Owner adds accountant as Named view-only for statements; no payment powers enabled; access reviewed after 90 days.
+18.3. Example C (Corporate → Change Primary Signatory): Company provides board resolution appointing new CFO as signatory; KYC completed; mandate updated to require dual authorization over set threshold; prior CFO removed.
+18.4. Example D (Personal → Death of Owner): Executor provides probate appointment; account is restricted; executor granted estate administration access; funds transferred to estate account.
+
+19.0 RULE INDEX (QUICK REFERENCE)
+19.1. Global verification and audit requirements: Sections 5.0 and 9.0.
+19.2. Personal account ownership constraints: Section 10.0.
+19.3. Savings account protective controls: Section 11.0.
+19.4. Corporate mandate and authority controls: Section 12.0.
+19.5. Execution maker-checker and revocation: Section 14.0.
+19.6. Disputes and escalation: Sections 15.0 and 16.0.
+
+END OF DOCUMENT
+
