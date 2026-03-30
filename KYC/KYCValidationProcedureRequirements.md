@@ -179,6 +179,20 @@ EDD is triggered by flags raised in Sections 1–3. All EDD cases must be review
 
 ---
 
+### Section 7 - File Name for Documenat Validation Details
+
+certOfIncorp.md
+commericalSupportingDoc.md
+govID.md
+managemementAccounts.md
+noterizedDocument.md
+proofAddress.md
+proofOFBusiness.md
+proofOfIncome.md
+sourceOfFunds.md
+sourceOfWealth.md
+uboID.md
+
 *Document Version: 1.0 | Classification: Internal — Compliance Use*
 
 *Written with Glean Assistant*  
