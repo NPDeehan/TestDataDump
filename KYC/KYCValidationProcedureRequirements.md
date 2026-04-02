@@ -1,198 +1,112 @@
-# KYC Validation Procedures & Requirements
+# KYC Validation Procedure Requirements (Demo Version)
 
-### Financial Institution — Customer Onboarding Standard
-
----
-
-## Overview
-
-This document defines the procedures and requirements for validating whether a financial institution may onboard a new customer. It is structured for use by an automated KYC validation agent with the following capabilities:
-
-- **Record Lookup** — Query existing internal customer and account records  
-- **Account Data Check** — Review linked financial account history and status  
-- **Sanctions Screening** — Cross-reference customer data against sanctions and watchlists  
-- **Document Validation** — Verify authenticity and integrity of submitted identity documents  
-- **Additional Documentation Requests** — Prompt the customer to submit supplementary evidence where required
-
-All requirements are numbered within their sections for precise reference during automated decision-making.
+### Financial Institution - Simplified AI Decision Paths
 
 ---
 
-## Section 1 — Universal Basic Requirements
+## 1. Purpose
 
-These checks apply to **all** customers, regardless of account type requested.
+This document defines simple and clear validation flows for a demo AI agent.
 
-### 1.1 Identity Submission
+The available tools stay the same:
 
-1.1.1 — The customer must submit a valid government-issued photo ID (passport, national ID card, or driver's licence).  
-1.1.2 — The submitted ID must not be expired at the time of application.  
-1.1.3 — The ID must contain a full legal name, date of birth, and a unique identifier (document number).  
-1.1.4 — The agent must perform document validation to confirm the ID is unaltered and authentic.  
-1.1.5 — The name on the ID must exactly match the name provided in the application form (allowing for minor transliteration differences).
-
-### 1.2 Basic Biographical Checks
-
-1.2.1 — The customer's date of birth must confirm they are at minimum **18 years of age**.  
-1.2.2 — The customer must provide a declared country of residence.  
-1.2.3 — The customer must provide a contact address (physical or registered).  
-1.2.4 — A valid email address and phone number must be collected for contact verification.
-
-### 1.3 Existing Record Lookup
-
-1.3.1 — The agent must query internal records to determine whether the customer already holds an account.  
-1.3.2 — If an existing record is found, the agent must verify the submitted ID matches the record on file.  
-1.3.3 — If the existing record shows a previously rejected or flagged application, escalation is required before proceeding.  
-1.3.4 — If the existing record shows an active account in good standing, identity re-verification may be streamlined per Section 3\.
-
-### 1.4 Sanctions Screening
-
-1.4.1 — The customer's full legal name and date of birth must be screened against all applicable sanctions lists (e.g., OFAC SDN, EU Consolidated List, UN Sanctions List).  
-1.4.2 — The customer's declared country of residence must not appear on restricted or embargoed country lists.  
-1.4.3 — Any fuzzy match (≥ 85% name similarity) against a sanctions record must be flagged for human review before proceeding.  
-1.4.4 — A confirmed sanctions match must result in immediate rejection of the application.
-
-### 1.5 Basic Financial Information
-
-1.5.1 — The customer must declare their primary source of income or funds.  
-1.5.2 — The customer must declare their estimated monthly transaction volume.  
-1.5.3 — The customer must declare their occupation or business activity.  
-1.5.4 — Declared financial information must be assessed for internal consistency and plausibility against the account type requested.
+- Record Lookup
+- Account Data Check
+- Sanctions Screening
+- Document Validation
+- Additional Documentation Requests
 
 ---
 
-## Section 2 — Account-Type Specific Requirements
+## 2. Universal Checks (Apply to Every Application)
 
-### 2.1 SAVINGS Account
-
-*Intended for individuals seeking a standard deposit and savings facility.*
-
-#### 2.1.1 Basic Requirements
-
-2.1.1.1 — The applicant must be an individual (natural person); entities are not eligible for a SAVINGS account.  
-2.1.1.2 — Proof of a residential address must be provided (e.g., utility bill or bank statement dated within 90 days).  
-2.1.1.3 — The declared source of funds must be consistent with an individual income source (e.g., employment, pension, self-employment).  
-2.1.1.4 — Expected monthly deposit volume must be declared and must not exceed a low-to-moderate risk threshold without additional verification.
-
-#### 2.1.2 Advanced Requirements
-
-2.1.2.1 — If the expected monthly deposit volume exceeds **€10,000**, proof of income (e.g., payslip, tax return) must be requested as additional documentation.  
-2.1.2.2 — Customers from high-risk jurisdictions (as defined by FATF) must undergo enhanced due diligence (EDD) — see Section 4\.  
-2.1.2.3 — If no existing record is found and the ID cannot be verified through document validation, a secondary form of ID must be requested.  
-2.1.2.4 — Politically Exposed Persons (PEPs) applying for a SAVINGS account require senior approval and enhanced monitoring.
+2.1 Customer must be 18 or older.  
+2.2 Name and date of birth must be present and consistent across application and ID.  
+2.3 Sanctions screening must run for every application.  
+2.4 Confirmed sanctions match = immediate rejection.  
+2.5 If any mandatory check cannot run (tool/data unavailable), return ESCALATED.
 
 ---
 
-### 2.2 PERSONAL Account
+## 3. Demo Decision Paths
 
-*Intended for individuals seeking a full-service transactional and current account.*
+### 3.1 Path A - Credit Card (Existing Customer, Easy Path)
 
-#### 2.2.1 Basic Requirements
+Use this path when customer already has an active account.
 
-2.2.1.1 — The applicant must be an individual (natural person).  
-2.2.1.2 — A valid photo ID satisfying all Section 1.1 requirements must be submitted.  
-2.2.1.3 — Proof of residential address dated within **60 days** must be submitted.  
-2.2.1.4 — Employment status must be declared (employed, self-employed, unemployed, student, retired).  
-2.2.1.5 — Estimated monthly incoming and outgoing transaction volumes must be declared.
+3.1.1 Record Lookup must confirm customer exists.  
+3.1.2 Account Data Check must show account status is good standing (not blocked, not delinquent).  
+3.1.3 Available balance must be greater than 1000.  
+3.1.4 Sanctions screening must be clear.
 
-#### 2.2.2 Advanced Requirements
+If all conditions 3.1.1 to 3.1.4 are true: outcome = APPROVED (auto-approved credit card).  
+If customer exists but balance is 1000 or less: route to Path B document-based review.  
+If good standing cannot be confirmed: outcome = ESCALATED.
 
-2.2.2.1 — If the applicant is self-employed, they must submit proof of business activity (e.g., business registration or tax certificate).  
-2.2.2.2 — If the declared monthly transaction volume exceeds **€25,000**, proof of income source must be requested as additional documentation.  
-2.2.2.3 — If account data checks reveal prior negative financial behaviour (e.g., defaults, closures for misconduct) at another institution accessible in the record, the application must be escalated.  
-2.2.2.4 — The customer must not appear as a beneficial owner of a sanctioned entity identified during sanctions screening.  
-2.2.2.5 — PEP status must be assessed; confirmed PEPs require an enhanced due diligence pathway (Section 4).  
-2.2.2.6 — Where the customer is a non-resident, a notarised copy of the ID document must be requested as additional documentation.
+### 3.2 Path B - Personal Account Opening (Light KYC)
 
----
+Required documents:
 
-### 2.3 CORPORATE Account
+- Government ID
+- Proof of address (dated within 90 days)
 
-*Intended for legal entities such as companies, partnerships, and other registered organisations.*
+3.2.1 Validate ID authenticity and expiry.  
+3.2.2 Validate proof of address authenticity and recency.  
+3.2.3 Name on ID must match application name (allow minor formatting differences).  
+3.2.4 Sanctions screening must be clear.
 
-#### 2.3.1 Basic Requirements
+If all required documents are valid and checks pass: outcome = APPROVED.  
+If one or more required documents are missing/invalid: outcome = PENDING_DOCS.
 
-2.3.1.1 — The applicant must be a registered legal entity with a valid company registration number.  
-2.3.1.2 — A certificate of incorporation or equivalent registration document must be submitted and validated.  
-2.3.1.3 — The entity's registered business address must be provided and verified.  
-2.3.1.4 — The entity's primary business activity (industry/sector) must be declared.  
-2.3.1.5 — The full legal names and dates of birth of all **Ultimate Beneficial Owners (UBOs)** holding ≥ 25% ownership must be declared.  
-2.3.1.6 — At least one authorised signatory must be identified and their identity verified per Section 1.1.  
-2.3.1.7 — The entity must submit its most recent set of audited or management accounts.
+### 3.3 Path C - Insurance Application (Higher Documentation)
 
-#### 2.3.2 Advanced Requirements
+Required documents:
 
-2.3.2.1 — All declared UBOs must individually pass sanctions screening per Section 1.4.  
-2.3.2.2 — All UBOs must be identity-verified; those holding ≥ 50% must provide a verified photo ID per Section 1.1.  
-2.3.2.3 — If the entity operates in a high-risk industry (e.g., gambling, crypto-assets, arms, money services), enhanced due diligence is mandatory per Section 4\.  
-2.3.2.4 — If the entity is incorporated in a high-risk or non-cooperative jurisdiction (FATF grey/black list), enhanced due diligence is mandatory per Section 4\.  
-2.3.2.5 — The entity's ownership structure must be fully documented; complex multi-layered structures must be mapped and reviewed by a compliance officer.  
-2.3.2.6 — Expected transaction volumes and counterparty jurisdictions must be declared; volumes exceeding **€100,000/month** require supporting commercial documentation (e.g., contracts, invoices).  
-2.3.2.7 — Any UBO identified as a PEP triggers mandatory enhanced due diligence per Section 4\.  
-2.3.2.8 — Shell companies or entities with no apparent commercial activity must be escalated for review and are presumptively rejected unless a legitimate purpose is demonstrated.
+- Government ID
+- Proof of address (dated within 90 days)
+- Proof of employment (or equivalent proof of income)
+
+3.3.1 Complete all checks from Path B.  
+3.3.2 Validate employment/income document authenticity and relevance.  
+3.3.3 If employment or income cannot be reasonably validated: outcome = ESCALATED.
+
+If all three documents are valid and sanctions check is clear: outcome = APPROVED.  
+If required documents are missing: outcome = PENDING_DOCS.
 
 ---
 
-## Section 3 — Existing Customer Streamlining
-
-3.1 — If the customer holds an existing account in good standing and their identity has been verified within the last **24 months**, full document re-validation may be waived.  
-3.2 — Sanctions screening must always be re-run regardless of existing customer status.  
-3.3 — Account-type specific requirements (Section 2\) remain fully applicable for each new account type requested.  
-3.4 — If any previously submitted documentation has expired (e.g., ID, proof of address), it must be re-requested before proceeding.  
-3.5 — A risk re-assessment must be triggered if the customer's declared financial profile has changed materially since last onboarding.
-
----
-
-## Section 4 — Enhanced Due Diligence (EDD)
-
-EDD is triggered by flags raised in Sections 1–3. All EDD cases must be reviewed by a compliance officer before a final decision is issued.
-
-4.1 — The customer or entity must provide an enhanced source-of-funds declaration with supporting documentary evidence.  
-4.2 — The customer or entity must provide an enhanced source-of-wealth declaration explaining the accumulation of assets.  
-4.3 — Additional proof of address and identity documentation must be requested, including notarised or apostilled copies where applicable.  
-4.4 — For corporate accounts, a full UBO ownership chain must be documented to the level of natural persons.  
-4.5 — Ongoing transaction monitoring must be set to a heightened frequency for any account that passes EDD.  
-4.6 — EDD reviews must be repeated on a **12-month cycle** for as long as the elevated risk classification persists.  
-4.7 — The final EDD approval must be signed off by a designated senior compliance officer; automated approval is not permitted.
-
----
-
-## Section 5 — Decision Outcomes
+## 4. Decision Outcomes
 
 | Code | Outcome | Condition |
 | :---- | :---- | :---- |
-| `APPROVED` | Application approved | All applicable requirements met, no flags |
-| `PENDING_DOCS` | Awaiting additional documentation | Agent has requested supplementary materials |
-| `PENDING_EDD` | Awaiting enhanced due diligence review | EDD triggered; pending compliance officer review |
-| `ESCALATED` | Referred to human review | Ambiguous match, conflicting data, or policy edge case |
-| `REJECTED` | Application rejected | Confirmed sanctions match, fraudulent document, or unresolvable risk |
+| APPROVED | Application approved | All required checks for selected path pass |
+| PENDING_DOCS | Awaiting customer documents | Missing or invalid mandatory document(s) |
+| ESCALATED | Human review required | Tool/data unavailable, ambiguous result, or risk flag |
+| REJECTED | Application rejected | Confirmed sanctions match or confirmed document fraud |
 
 ---
 
-## Section 6 — Agent Behaviour Rules
+## 5. Agent Behavior Rules (Simplified)
 
-6.1 — The agent must not approve an application without completing all mandatory checks for the relevant account type(s).  
-6.2 — Where a customer has applied for multiple account types simultaneously, the most stringent applicable requirements govern.  
-6.3 — The agent may request additional documentation a maximum of **two times** before escalating to human review.  
-6.4 — All agent decisions must be logged with a reference to the specific requirement(s) that informed the outcome.  
-6.5 — The agent must never store raw ID document images beyond the validation step; only the validation result and document metadata may be retained.  
-6.6 — Any system error or data unavailability during a mandatory check must result in a `PENDING` status and human review, never a default approval.
+5.1 Agent must select one path only (A, B, or C) based on product requested and existing customer status.  
+5.2 Agent may request additional documents a maximum of two times before ESCALATED.  
+5.3 Every outcome must log the rule numbers used.  
+5.4 Agent must never default to approval if a required check fails or cannot run.
 
 ---
 
-### Section 7 - File Name for Documenat Validation Details
+## 6. Document File References for Validation
 
-certOfIncorp.md
-commericalSupportingDoc.md
-govID.md
-managemementAccounts.md
-noterizedDocument.md
-proofAddress.md
-proofOFBusiness.md
-proofOfIncome.md
-sourceOfFunds.md
-sourceOfWealth.md
-uboID.md
+- govID.md
+- proofAddress.md
+- proofOfIncome.md
 
-*Document Version: 1.0 | Classification: Internal — Compliance Use*
+Optional references for fallback/escalation scenarios:
 
-*Written with Glean Assistant*  
+- sourceOfFunds.md
+- sourceOfWealth.md
+- noterizedDocument.md
+
+---
+
+*Document Version: 2.0 (Demo Simplified)*
