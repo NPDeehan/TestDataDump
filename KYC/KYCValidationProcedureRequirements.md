@@ -8,6 +8,8 @@
 
 This document defines simple and clear validation flows for a demo AI agent.
 
+This procedure applies to all new customers and to any existing customer who does not hold an L1 trust level. A risk check must be completed for all such customers before any application can proceed.
+
 The available tools stay the same:
 
 - Record Lookup
