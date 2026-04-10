@@ -1,0 +1,95 @@
+# Insurance Claim Validation Procedures
+
+## Stage 1: Identity Verification
+
+Validate the claimant's identity before processing any claim. At least 3 of the following must be confirmed against the system record:
+
+1.1 Full name matches policy holder name on file
+1.2 Date of birth matches policy record
+1.3 Policy number provided by claimant matches an active policy
+1.4 Registered address matches policy record
+1.5 Contact email or phone number matches policy record
+
+Outcome: PASS (3+ verified) or FAIL (fewer than 3 verified — reject claim, flag for review)
+
+
+## Stage 2: Incident Validation
+
+Validate the details of the incident based on claim type.
+
+### 2A: Car Insurance
+2A.1 Date and location of incident provided
+2A.2 At least one of: photo evidence of damage OR police report number
+2A.3 Third-party details provided if another vehicle was involved
+2A.4 Confirm incident date falls within active policy period
+
+### 2B: Long-Term Injury
+2B.1 Doctor's note or medical certificate provided
+2B.2 Injury description matches claim type covered by policy
+2B.3 Date of diagnosis or injury onset provided
+2B.4 Confirm ongoing treatment if claim is for continued benefit
+
+### 2C: House / Property
+2C.1 Description of damage or loss provided
+2C.2 At least one of: photos of damage OR crime reference number (if theft/vandalism)
+2C.3 Date of incident provided
+2C.4 Confirm property address matches policy record
+
+### 2D: Pet
+2D.1 Vet invoice or treatment record provided
+2D.2 Pet name and species match policy record
+2D.3 Date of treatment provided
+2D.4 Confirm condition is not listed as a pre-existing exclusion on policy
+
+Outcome: PASS (all required fields present and valid) or FAIL (missing or inconsistent — request resubmission)
+
+
+## Stage 3: Policy Coverage Verification
+
+Confirm the claimant's policy covers the type of claim being made.
+
+3.1 Identify the claim type from Stage 2
+3.2 Confirm policy includes coverage for that claim type
+3.3 Confirm the policy was active on the date of the incident
+3.4 Check that the claim amount (if provided) does not exceed the policy limit for that coverage
+3.5 Confirm no duplicate or previously settled claim exists for the same incident
+
+Outcome: PASS (policy valid and covers claim) or FAIL (policy expired, wrong type, or limit exceeded — reject with reason)
+
+
+## Final Decision
+
+All 3 stages must return PASS for the claim to proceed to processing.
+Any FAIL triggers an automatic hold with a reason code returned to the claimant.
+
+
+## Clerk Report
+
+The agent must produce a report for the reviewing clerk upon completion of validation. The report must include:
+
+### R1: Claim Summary
+R1.1 Claimant full name and policy number
+R1.2 Claim type (car / injury / house / pet)
+R1.3 Date of claim submission
+R1.4 Date of incident
+
+### R2: Validation Methods Followed
+R2.1 List each stage that was executed (Stage 1, 2, 3)
+R2.2 For Stage 2, note which claim-type sub-procedure was applied (e.g. 2A: Car Insurance)
+R2.3 List each individual procedure check performed (e.g. 1.1, 1.3, 2A.2) and whether it passed or failed
+R2.4 Note any checks that were skipped and the reason why
+
+### R3: Evidence Reviewed
+R3.1 List all documents or data items submitted by the claimant (e.g. doctor's note, police report, photos)
+R3.2 Note the source of each system record checked (e.g. policy database, claims history)
+
+### R4: Stage Outcomes
+R4.1 Stage 1 result: PASS / FAIL — with the count of verified identity fields
+R4.2 Stage 2 result: PASS / FAIL — with a brief reason if failed
+R4.3 Stage 3 result: PASS / FAIL — with policy limit and coverage type confirmed or the reason for failure
+
+### R5: Recommendation
+R5.1 Overall outcome: APPROVE / REJECT / REFER
+R5.2 Justification in plain language (2–3 sentences max)
+R5.3 If REJECT: the specific stage and check that caused the failure
+R5.4 If REFER: the reason the agent was unable to reach a conclusion and what the clerk needs to investigate
