@@ -1,0 +1,281 @@
+ALLIED HENNA TELECOM
+Field Technician Procedures & Best Practices
+Document Version: 1.0
+Effective Date: 2026-04-19
+============================================================
+
+SECTION 1: PRE-SITE VISIT PREPARATION
+--------------------------------------------------------------
+
+1.1  Confirm work order details with dispatch before departing depot, including
+     site address, service type (fibre/copper/wireless), and customer contact.
+
+1.2  Verify that your vehicle is stocked with the following equipment:
+     - Fibre splicing kit and fusion splicer
+     - Copper termination tools (punch-down tool, RJ11/RJ45 dies)
+     - Cable toner and probe
+     - Optical power meter and light source
+     - Cable tester (continuity and length)
+     - Ladder (6 ft and 12 ft)
+     - Personal Protective Equipment (PPE): hard hat, safety glasses, hi-vis vest,
+       gloves, steel-toed boots
+     - First aid kit
+     - Lockout/tagout kit
+     - Spare connectors, patch leads, wall plates, and faceplate assemblies
+     - Work order documentation and tablet or phone with Allied Henna Telecom
+       field app installed
+
+1.3  Check weather conditions and assess any site-specific hazards logged in
+     the field app before departure.
+
+1.4  Confirm your schedule with the customer at least 30 minutes before arrival.
+
+1.5  Ensure your vehicle communication device and mobile phone are fully charged.
+
+
+SECTION 2: ON-SITE ARRIVAL & SAFETY
+--------------------------------------------------------------
+
+2.1  Park in a safe, designated area. Do not block driveways or emergency access.
+
+2.2  Before entering any premises, present your Allied Henna Telecom ID badge
+     to the customer or site representative.
+
+2.3  Conduct a visual site hazard assessment before beginning any work:
+     - Identify overhead power lines
+     - Check for unstable ground, wet surfaces, or confined space entry points
+     - Note any signage indicating hazardous materials
+
+2.4  Do not enter roof cavities, sub-floor spaces, or confined areas alone.
+     Notify dispatch before entering confined spaces and confirm check-in/check-out
+     times.
+
+2.5  Apply lockout/tagout procedures on any electrical cabinets or MDF/IDF
+     enclosures before working on live equipment panels.
+
+2.6  Never work on live cables without confirming isolation with a voltage tester.
+
+
+SECTION 3: BUILDING CONNECTION — FIBRE SERVICE
+--------------------------------------------------------------
+
+3.1  Locate the Network Termination Point (NTP) or the designated entry conduit
+     as per the site plan in your work order.
+
+3.2  Inspect the exterior conduit entry for damage, moisture ingress, or
+     obstruction before threading cable.
+
+3.3  Pull the drop fibre cable through the conduit using an approved pull cord.
+     Do not exceed the cable's minimum bend radius (typically 30 mm for drop cable).
+
+3.4  At the NTP/ONT mounting location:
+     a. Fix the wall bracket securely into a load-bearing surface using
+        appropriate anchors.
+     b. Mount the ONT (Optical Network Terminal) unit level and upright.
+     c. Route cable with adequate slack for servicing (minimum 1 m service loop).
+
+3.5  Perform a fibre splice or SC/APC connector termination according to the
+     Allied Henna Telecom Fibre Termination Standard (ref: AHT-FTS-003).
+
+3.6  Clean all connectors with a fibre cleaning tool before mating. Never
+     inspect a live fibre port with the naked eye.
+
+3.7  Measure optical power at the ONT receive port using the optical power meter:
+     - Acceptable receive level: -8 dBm to -27 dBm
+     - If outside range, check for excessive bend, dirty connectors, or splice loss.
+
+3.8  Power up the ONT and confirm link status LEDs are green before proceeding
+     to customer equipment setup.
+
+
+SECTION 4: BUILDING CONNECTION — COPPER SERVICE
+--------------------------------------------------------------
+
+4.1  Locate the existing or new Main Distribution Frame (MDF) or external
+     junction box as indicated on the work order.
+
+4.2  Inspect all copper pairs for continuity and insulation resistance using the
+     cable tester before committing a pair to service.
+
+4.3  Terminate the service pair at the MDF using a punch-down tool on IDC
+     (Insulation Displacement Contact) blocks. Verify polarity: Tip (white/blue)
+     to Pin 4, Ring (blue) to Pin 5 for POTS; follow DSL pair allocation table
+     AHT-DSL-001 for broadband services.
+
+4.4  Route internal cable neatly, secured with cable clips at no greater than
+     300 mm intervals. Avoid running parallel to 240 V mains wiring for more
+     than 1 m.
+
+4.5  Test the completed circuit end-to-end with the cable toner and confirm
+     with the customer's socket.
+
+4.6  Record loop resistance, insulation resistance, and pair balance readings
+     in the field app before closing the job.
+
+
+SECTION 5: WIRELESS POINT-TO-POINT / FIXED WIRELESS CONNECTION
+--------------------------------------------------------------
+
+5.1  Confirm line-of-sight (LOS) between the customer premises and the nearest
+     Allied Henna Telecom fixed wireless node using the LOS tool in the field app.
+
+5.2  Select the mounting location for the Customer Premises Equipment (CPE)
+     antenna — highest unobstructed point on the building exterior, clear of
+     HVAC units and metallic structures.
+
+5.3  Mount the antenna bracket securely to the fascia, wall, or roof mast.
+     All roof penetrations must be sealed with weatherproof mastic.
+
+5.4  Align the antenna using the signal strength indicator in the CPE web
+     interface. Target RSSI: -60 dBm or better. Tighten all mounting bolts
+     once alignment is confirmed.
+
+5.5  Route the Ethernet cable from the CPE to the indoor Power over Ethernet
+     (PoE) injector using weatherproof gland entry. Bond the cable screen to
+     the building earth if instructed by the work order.
+
+5.6  Confirm IP connectivity and run a throughput test via the field app.
+     Minimum acceptable: 90% of provisioned speed.
+
+
+SECTION 6: CUSTOMER EQUIPMENT & HANDOVER
+--------------------------------------------------------------
+
+6.1  Connect the Allied Henna Telecom-supplied router or modem to the NTP/ONT
+     or CPE as applicable. Confirm broadband sync and IP address acquisition.
+
+6.2  Test customer-facing services as specified in the work order (internet,
+     VoIP, IPTV). Document all test results in the field app.
+
+6.3  Label all equipment with the Allied Henna Telecom asset tag. Photograph
+     all installed equipment and upload images to the work order before leaving.
+
+6.4  Brief the customer on basic equipment operation, LED status indicators,
+     and the Allied Henna Telecom support contact number (1800-AHT-HELP).
+
+6.5  Obtain the customer's signature on the job completion form via the field
+     app before leaving the premises.
+
+6.6  Remove all waste cable, packaging, and offcuts from the site. Dispose of
+     electronic waste at an approved Allied Henna Telecom depot recycling point.
+
+
+SECTION 7: TROUBLESHOOTING GUIDE
+--------------------------------------------------------------
+
+7.1  No ONT Link Light (Fibre)
+     - Check ONT power supply and power outlet.
+     - Inspect fibre cable for visible damage or tight bends.
+     - Clean and re-seat the SC/APC connector.
+     - Measure optical power at the ONT receive port. If no light detected,
+       trace back to the splice point or distribution cabinet.
+     - Escalate to the Network Operations Centre (NOC) if the issue is upstream
+       of the NTP.
+
+7.2  ONT Online but No Broadband Service
+     - Confirm provisioning status with NOC via field app.
+     - Restart the ONT (power cycle, wait 3 minutes).
+     - Check ONT serial number matches the provisioned record in the field app.
+
+7.3  Copper — No Dial Tone / No DSL Sync
+     - Verify correct pair is jumperedthrough the MDF.
+     - Test for line voltage: 48 V DC ± 6 V on-hook.
+     - Test for foreign voltage or excessive noise with a butt set.
+     - If noise or low voltage is detected, log a fault with the NOC for a
+       line plant investigation.
+
+7.4  Wireless CPE — Poor Signal / No Link
+     - Confirm antenna alignment has not shifted (check for wind damage or
+       loose mount bolts).
+     - Check for new obstructions in the LOS path.
+     - Re-run alignment procedure (Section 5.4).
+     - If node-side issue is suspected, notify NOC for remote node diagnostics.
+
+7.5  Router / Modem Not Connecting
+     - Factory reset the device only if authorised in the work order.
+     - Confirm correct VLAN and PPPoE credentials are configured.
+     - Swap with a tested spare unit if available.
+     - Escalate to Level 2 support if the issue persists after equipment swap.
+
+7.6  Intermittent Service After Installation
+     - Check all connector terminations for proper seating.
+     - Inspect cable runs for pinch points or sharp bends.
+     - Review ONT receive power over time via the field app diagnostic graph
+       for optical fluctuation.
+     - Log a follow-up visit if the fault cannot be reproduced on-site.
+
+
+SECTION 8: DEALING WITH CREATURES ON SITE
+--------------------------------------------------------------
+
+Field technicians frequently access roof cavities, sub-floor spaces, wall
+cavities, and outdoor equipment enclosures where animals may be present.
+Follow these procedures to protect yourself and the animals.
+
+8.1  General Precautions (All Creatures)
+     - Before reaching into any dark space (cabinet, conduit, cavity), use
+       a torch to inspect the area first.
+     - Wear heavy-duty gloves when opening external enclosures or working in
+       roof cavities.
+     - Do not attempt to handle, capture, or harm any animal. If an animal
+       blocks access, vacate the area calmly and contact dispatch.
+     - Document the presence of any creature in the work order notes with a
+       photograph if it can be taken safely.
+
+8.2  Insects (Wasps, Bees, Spiders)
+     - If a nest or significant spider infestation is found inside a cabinet
+       or conduit entry point, do not disturb it.
+     - Mark the hazard in the field app, notify dispatch, and do not proceed
+       with work until a pest controller has cleared the site.
+     - If stung or bitten, apply first aid from your kit. If you have a known
+       allergy, use your EpiPen immediately and call emergency services (000).
+
+8.3  Rodents (Rats, Mice)
+     - Rodent activity (droppings, gnawed cable) must be photographed and
+       logged. Gnawed cable must be replaced — do not tape and leave.
+     - Wear gloves and a dust mask (P2 rating) when working in areas with
+       rodent evidence, as droppings can carry disease.
+     - Notify the customer and include a remediation note in the work order.
+
+8.4  Snakes
+     - Do not attempt to move or handle a snake under any circumstances.
+     - Back away slowly and calmly. Alert the customer to keep others away
+       from the area.
+     - Contact a licensed wildlife handler or local council snake catcher
+       via dispatch.
+     - Do not re-enter the affected area until cleared by the wildlife handler.
+     - Record the incident in the field app and complete an Allied Henna Telecom
+       incident report form.
+
+8.5  Possums, Birds, and Other Wildlife
+     - Many native species are protected. Do not disturb nests, eggs, or young.
+     - If an animal is nesting inside an enclosure required for the installation,
+       contact dispatch. A wildlife relocation permit may be required before
+       work can proceed.
+     - If an animal appears injured, contact the local wildlife rescue line
+       via dispatch for guidance.
+
+8.6  Domestic Animals (Dogs, Cats)
+     - Confirm with the customer that dogs are secured before entering the
+       property, particularly rear yards and garages.
+     - If a dog acts aggressively, withdraw to a safe position and ask the
+       customer to restrain it before you proceed.
+     - Do not enter a property where you cannot confirm the animal is secured.
+
+
+SECTION 9: END-OF-JOB CHECKLIST
+--------------------------------------------------------------
+
+9.1  [ ] All test results recorded in the field app
+9.2  [ ] All equipment photographed and asset-tagged
+9.3  [ ] Customer briefed and signature obtained
+9.4  [ ] Site left clean and all waste removed
+9.5  [ ] Any hazards or follow-up actions logged in the work order
+9.6  [ ] Work order status updated to Complete or Pending Follow-Up in field app
+9.7  [ ] Vehicle restocked with any consumed materials before next job
+
+
+============================================================
+For urgent technical escalation contact: NOC 24/7 — 1800-AHT-NOC1
+For safety incidents contact: Allied Henna Telecom Safety Team — 1800-AHT-SAFE
+============================================================

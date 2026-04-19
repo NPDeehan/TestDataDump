@@ -1,0 +1,54 @@
+# Veterinary Treatment Record & Invoice
+
+## Practice Details
+Practice Name:  Clonskeagh Veterinary Clinic
+Address:        45 Clonskeagh Road, Dublin 14, Ireland
+Vet on Record:  Dr. Sarah Molloy (MVB MRCVS)
+Phone:          +353 1 283 4400
+
+## Patient Record
+Patient Name:   Biscuit
+Species:        Canine
+Breed:          Golden Retriever
+Age:            7 years
+Owner:          Niall Deehan
+Owner Address:  12 Maple Grove, Dublin 6, Ireland
+
+## Clinical Notes
+Date of Admission:  05/04/2026
+Presenting Signs:   Acute lethargy, abdominal distension, loss of appetite (2-day history)
+Diagnosis:          Splenic mass with haemoabdomen (ruptured splenic tumour)
+Treatment:          Emergency splenectomy performed 05/04/2026 at 18:30
+
+Post-operative monitoring continued overnight. Patient showed no improvement in
+cardiovascular stability. Cardiac arrest occurred at 02:14 on 06/04/2026.
+Resuscitation attempted. Patient pronounced deceased at 02:31 on 06/04/2026.
+
+No prior history of splenic disease or related condition on file.
+
+## Cause of Death
+Haemorrhagic shock secondary to ruptured splenic mass. Acute onset — not a
+pre-existing or previously documented condition.
+
+Date of Death:  06/04/2026
+
+## Invoice
+
+| Item                              | Cost     |
+|-----------------------------------|----------|
+| Emergency consultation            | €120.00  |
+| Diagnostic imaging (ultrasound)   | €180.00  |
+| Pre-operative bloodwork           | €95.00   |
+| Emergency splenectomy (surgery)   | €1,850.00|
+| Anaesthesia                       | €310.00  |
+| Overnight ICU monitoring          | €220.00  |
+| Medications                       | €85.00   |
+|-----------------------------------|----------|
+| TOTAL                             | €2,860.00|
+
+## Declaration
+I confirm this record accurately reflects the treatment provided and the circumstances
+of the patient's death.
+
+Signed: Dr. Sarah Molloy MVB MRCVS
+Date:   07/04/2026

@@ -1,0 +1,41 @@
+# Insurance Claim Submission
+
+## Claimant Details
+Name:           Niall Deehan
+Date of Birth:  14/03/1987
+Policy Number:  POL-2021-48821
+Address:        12 Maple Grove, Dublin 6, Ireland
+Email:          niall.deehan@email.com
+Phone:          +353 87 412 9934
+
+## Claim Details
+Claim Type:     Pet Insurance — Death Benefit
+Date of Claim:  10/04/2026
+Date of Death:  06/04/2026
+
+## Pet Details
+Pet Name:       Biscuit
+Species:        Dog
+Breed:          Golden Retriever
+Age:            7 years
+Policy Coverage: Accident & Illness — includes death benefit up to €3,000
+
+## Incident Description
+Biscuit was brought to the vet on 05/04/2026 after showing signs of acute distress and
+loss of appetite over two days. He was diagnosed with a splenic mass and underwent
+emergency surgery the same day. He did not recover from the procedure and passed away
+on 06/04/2026. This was an unexpected illness with no prior diagnosis or related history.
+
+## Claim Amount Requested
+€3,000 (maximum death benefit under policy POL-2021-48821)
+
+## Supporting Documents Attached
+- Vet treatment record and invoice (see: vet_record_NiallDeehan_pet.txt)
+
+## Claimant Declaration
+I confirm that the information provided above is accurate and complete to the best of
+my knowledge. I understand that providing false information may result in claim rejection
+and cancellation of my policy.
+
+Signed: Niall Deehan
+Date:   10/04/2026
