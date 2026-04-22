@@ -24,10 +24,17 @@ Amaranth was flagged by long-range survey probes in 2349 as a candidate for huma
 | Name | Role |
 |---|---|
 | Cmdr. Holden, J. | Commanding Officer |
-| Lt. Nagata, N. | Chief Pilot |
-| Engineer Kaur, A. | Chief Engineer |
+| Engineer Nagata, N. | Chief Engineer |
+| Sgt Draper, B. | Chief Pilot |
 | Sgt. Burton, A. | Security & Tactical |
 | Dr. Osei, P. | Science & Medical Officer |
+| Lt. Kaur, S. | Navigation Officer |
+| Tech. Volkov, D. | Systems Engineer |
+| Dr. Chen, M. | Medical Officer |
+| Cpl. Rin, T. | Communications & Intelligence |
+| Sgt. Okafor, E. | Security & Tactical |
+| Dr. Yamamura, K. | Geology & Survey Specialist |
+| Tech. Santos, F. | Logistics & Cargo |
 
 ---
 
